@@ -3,8 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { useSettings } from './providers/SettingsProvider';
 import { AppRouting } from './routing';
 import { PathnameProvider } from './providers';
-
-const { BASE_URL } = import.meta.env;
+import TestComponent from './components/TestComponent';
 
 const App = () => {
   const { settings } = useSettings();
@@ -16,9 +15,12 @@ const App = () => {
   }, [settings]);
 
   return (
-    <BrowserRouter basename={BASE_URL}>
+    <BrowserRouter>
       <PathnameProvider>
-        <AppRouting />
+        <div className="p-8">
+          <TestComponent />
+          <AppRouting />
+        </div>
       </PathnameProvider>
     </BrowserRouter>
   );
